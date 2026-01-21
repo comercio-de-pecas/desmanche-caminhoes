@@ -1,71 +1,163 @@
+/* =====================
+   VARIÁVEIS
+===================== */
 :root {
   --brown: #4E342E;
   --brown-dark: #3E2723;
   --accent: #C89B3C;
+  --gray-light: #f5f5f5;
 }
 
+/* =====================
+   RESET BÁSICO
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =====================
+   HEADER
+===================== */
+.header-logo-bg {
+  height: 96px;
+  background: var(--brown-dark) url('../assets/src/logo.jpeg') center/contain no-repeat;
+}
+
+.header-overlay {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 10px rgba(0,0,0,.6);
+}
+
+@media (max-width: 768px) {
+  .header-logo-bg {
+    height: 80px;
+  }
+
+  .header-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* =====================
+   HERO
+===================== */
 .hero {
   background: linear-gradient(135deg, var(--brown-dark), var(--brown));
 }
 
+.hero h2 {
+  line-height: 1.2;
+}
+
+/* =====================
+   BOTÕES
+===================== */
 .btn-primary {
   background: linear-gradient(135deg, var(--accent), #b38a2e);
   padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 14px;
+  font-weight: 700;
   color: #000;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
-  transition: .3s;
+  transition: transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
 }
 
-.products-scroll {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
-}
-
+/* =====================
+   PRODUTOS
+===================== */
 .product-card {
-  min-width: 260px;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,.15);
-  scroll-snap-align: start;
-  padding: 12px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+  padding: 14px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0,0,0,.25);
 }
 
 .product-card img {
-  border-radius: 12px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brown);
   margin-bottom: 10px;
 }
 
+/* =====================
+   BOTÃO PRODUTO
+===================== */
 .product-btn {
+  margin-top: auto;
   background: var(--brown);
   color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  display: block;
-  margin-top: 8px;
-}
-
-.card {
-  background: #fff;
-  padding: 24px;
-  border-radius: 16px;
+  padding: 12px;
+  border-radius: 12px;
   font-weight: 600;
+  transition: background .3s ease, transform .3s ease;
 }
 
+.product-btn:hover {
+  background: var(--brown-dark);
+  transform: scale(1.04);
+}
+
+/* =====================
+   SEÇÕES GERAIS
+===================== */
+section {
+  position: relative;
+}
+
+/* =====================
+   WHATSAPP FLUTUANTE
+===================== */
 .whatsapp-float {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 22px;
+  right: 22px;
   width: 64px;
   height: 64px;
   background: #25D366;
@@ -73,5 +165,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,.4);
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  z-index: 999;
+  transition: transform .3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* =====================
+   MOBILE REFINOS
+===================== */
+@media (max-width: 640px) {
+  .product-card {
+    padding: 12px;
+  }
+
+  .price {
+    font-size: 1.05rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
 }
